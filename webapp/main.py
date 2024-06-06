@@ -18,6 +18,7 @@ x = 5
 with open(historical_data, "r") as f:
     data = json.load(f)
 
+
 @app.get('/')
 def root():
     """
@@ -36,7 +37,9 @@ def countries():
 def monthly_average(country: str, city: str, month: str):
     return data[country][city][month]
 
+
 # Generate the OpenAPI schema:
 openapi_schema = app.openapi()
 with open(join(wellknown_path, "openapi.json"), "w") as f:
     json.dump(openapi_schema, f)
+    
